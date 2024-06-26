@@ -2,8 +2,8 @@ const express = require('express')
 const dotenv = require("dotenv").config();
 const cors=require('cors');
 const mysql = require('mysql');
-// const connection = mysql.createConnection(process.env.URI);
-const db = mysql.createConnection({
+const db = mysql.createConnection(process.env.URI);
+const co= mysql.createConnection({
 	host: process.env.HOST,
 	user: process.env.DATABASE_USER,
 	password: process.env.PASSWORD,
