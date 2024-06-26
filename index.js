@@ -37,7 +37,7 @@ app.get('/favorites', (req, res) => {
         res.status(500).send('Error fetching favorite packages');
         return;
       }
-      console.log(results);
+      // console.log(results);
       res.json(results);
     });
   });
@@ -64,7 +64,9 @@ app.get('/favorites', (req, res) => {
         res.status(500).send('Error deleting favorite package');
         return;
       }
+      console.log("Fav Pack deleted")
       res.send('Favorite package deleted');
+
     });
   });
   
@@ -78,7 +80,7 @@ app.get('/favorites', (req, res) => {
         res.status(500).send('Error updating favorite package');
         return;
       }
-      res.send('Favorite package updated');
+      res.send(reason );
     });
   });
 
