@@ -12,11 +12,16 @@ const co= mysql.createConnection({
 }
 );
 const app = express()
-app.use(cors({
+const corsOptions={
   origin: 'https://fav-npm-package.netlify.app/', // Replace with your frontend URL
   credentials: true, // enable set cookie
-}));
-
+}
+app.use(cors(corsOptions));
+app.options('*',cors(corsOptions));
+// app.use(cors({
+//   origin: 'https://fav-npm-package.netlify.app/', // Replace with your frontend URL
+//   credentials: true, // enable set cookie
+// }));
 
 const port = 3000
 
