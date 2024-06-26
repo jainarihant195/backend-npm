@@ -28,7 +28,22 @@ db.connect((err) => {
     }
     console.log('Connected to MySQL');
   });
-
+ // SQL query to create the table
+ const createTableQuery = `
+ CREATE TABLE IF NOT EXISTS favorite_packages (
+   id INT AUTO_INCREMENT PRIMARY KEY,
+   package_name VARCHAR(255) NOT NULL,
+   reason TEXT,
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ )
+`;
+  db.query(createTableQuery, (err, result) => {
+    if (err) {
+      console.error('Error creating table:', err);
+      return;
+    }
+    console.log('Table created successfully:', result);
+  });
 // Route to fetch all favorite packages
 app.get('/favorites', (req, res) => {
     db.query('SELECT * FROM favorite_packages', (err, results) => {
