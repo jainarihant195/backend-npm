@@ -13,7 +13,7 @@ const co= mysql.createConnection({
 );
 const app = express()
 const corsOptions={
-  origin: 'https://fav-npm-package.netlify.app/', // Replace with your frontend URL
+  origin: 'https://fav-npm-package.netlify.app', // Replace with your frontend URL
   credentials: true, // enable set cookie
 }
 app.use(cors(corsOptions));
